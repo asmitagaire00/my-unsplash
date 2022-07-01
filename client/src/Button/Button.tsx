@@ -1,0 +1,49 @@
+import "./Button.css";
+
+type props = {
+  backgroundColor: string;
+  color: string;
+  border: string;
+  width: string;
+  height: string;
+  borderRadius: string;
+  font: string;
+  weight: any;
+  cursor: string;
+  children: React.ReactNode;
+  onClick: () => void;
+};
+
+const Button = ({
+  children,
+  color,
+  border,
+  width,
+  height,
+  borderRadius,
+  font,
+  weight,
+  backgroundColor,
+  cursor,
+  onClick,
+}: props) => {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        color: color,
+        font: font,
+        backgroundColor: backgroundColor,
+        border: border,
+        height: height,
+        width: width,
+        borderRadius: borderRadius,
+        cursor: cursor,
+      }}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;

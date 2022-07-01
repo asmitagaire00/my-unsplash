@@ -1,0 +1,66 @@
+.homepage-wrapper {
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  padding: 0 4rem;
+}
+
+.homepage-topbar {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  border: 1px solid green;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-and-title-container {
+  border: 1px solid;
+  display: flex;
+  margin-right: 1rem;
+}
+
+.logo {
+  margin-right: 1rem;
+  border: 1px solid;
+  padding-top: 4px;
+}
+
+.title-text {
+  font-weight: 800;
+  size: 14px;
+  line-height: 19.07px;
+}
+
+.title-website {
+  font-weight: 500;
+  size: 9px;
+  line-height: 12.26px;
+}
+.search-wrapper {
+  border: 1px solid gray;
+  width: 250px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  size: 15px;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+
+.search-text {
+  font-size: 14px;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
