@@ -8,7 +8,7 @@ type props = {
   height: string;
   borderRadius: string;
   font: string;
-  weight: any;
+  fontWeight: any;
   cursor: string;
   children: React.ReactNode;
   onClick: () => void;
@@ -22,7 +22,7 @@ const Button = ({
   height,
   borderRadius,
   font,
-  weight,
+  fontWeight,
   backgroundColor,
   cursor,
   onClick,
