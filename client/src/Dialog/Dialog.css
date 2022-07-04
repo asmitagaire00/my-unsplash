@@ -1,0 +1,16 @@
+.dialog-wrapper-show {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  width: 50%;
+  height: 50%;
+  z-index: 1;
+  border: 1px solid;
+}
+.dialog-wrapper-hide {
+  display: none;
+}
+
+.dialogbox-content {
+  background-color: #ffffff;
+}
