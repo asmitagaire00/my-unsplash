@@ -6,18 +6,32 @@ import "./ImageList.css";
 type imageProps = {
   setDialogBox: (dialog: boolean) => void;
   dialogBox: boolean;
+  searchShow: boolean;
+  searchFieldValue: string;
 };
 
-const ImageList = ({ setDialogBox, dialogBox }: imageProps) => {
+const ImageList = ({
+  setDialogBox,
+  dialogBox,
+  searchShow,
+  searchFieldValue,
+}: imageProps) => {
   const [imageList, setImageList] = useState<
     { id: string; label: string; url: string }[]
   >([]);
+
+  let filteredImageList = imageList;
 
   useEffect(() => {
     fetch("/post")
       .then((response) => response.json())
       .then((imageDetails) => {
-        setImageList(imageDetails);
+        const sortedImageDetails = imageDetails.sort((a: any, b: any) => {
+          return (
+            new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
+          );
+        });
+        setImageList(sortedImageDetails);
       });
   }, []);
 
@@ -26,17 +40,24 @@ const ImageList = ({ setDialogBox, dialogBox }: imageProps) => {
     fetch("/post/" + deleteId._id, { method: "DELETE" })
       .then((response) => response.json())
       .then((updatedImageInfo) => {
-        setImageList([...imageList, updatedImageInfo]);
+        // setImageList([...imageList, updatedImageInfo]);
+        console.log(updatedImageInfo);
       })
       .catch((err) => {
         console.log("error occured in delete ", err);
       });
   };
 
+  if (searchShow) {
+    filteredImageList = imageList.filter((imageItem) => {
+      return imageItem.label.toLocaleLowerCase().includes(searchFieldValue);
+    });
+  }
+
   return (
     <div>
       <div>
-        {imageList.map((imageInfo, index) => {
+        {filteredImageList.map((imageInfo, index) => {
           return (
             <ImageItem
               imageInfo={imageInfo}

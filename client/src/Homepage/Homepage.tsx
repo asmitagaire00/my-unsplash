@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import AddImageDialog from "../AddImageDialog/AddImageDialog";
 import Button from "../Button/Button";
 import Dialog from "../Dialog/Dialog";
@@ -7,7 +7,18 @@ import "./Homepage.css";
 
 const Homepage = () => {
   const [dialogBox, setDialogBox] = useState<boolean>(false);
-  // const [datas, setDatas] = useState<{ label: string; url: string }[]>([]);
+
+  const [searchFieldValue, setSearchFieldValue] = useState<string>("");
+  const [searchShow, setSearchShow] = useState<boolean>(false);
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchFieldValue(e.target.value);
+    if (e.target.value === "") {
+      setSearchShow(false);
+    } else {
+      setSearchShow(true);
+    }
+  };
 
   return (
     <div>
@@ -27,6 +38,8 @@ const Homepage = () => {
                 type="text"
                 placeholder="search by name.."
                 className="search-text"
+                value={searchFieldValue}
+                onChange={handleSearch}
               />
             </div>
           </div>
@@ -55,7 +68,12 @@ const Homepage = () => {
             <AddImageDialog setDialogBox={setDialogBox} />
           </Dialog>
         )}
-        <ImageList setDialogBox={setDialogBox} dialogBox={dialogBox} />
+        <ImageList
+          setDialogBox={setDialogBox}
+          dialogBox={dialogBox}
+          searchShow={searchShow}
+          searchFieldValue={searchFieldValue}
+        />
       </div>
     </div>
   );
