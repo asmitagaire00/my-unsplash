@@ -60,17 +60,11 @@ const Homepage = () => {
           </div>
         </div>
         {dialogBox && (
-          <Dialog
-            setDialogBox={setDialogBox}
-            dialogBox={dialogBox}
-            title="Add a new Photo"
-          >
+          <Dialog dialogBox={dialogBox} title="Add a new Photo">
             <AddImageDialog setDialogBox={setDialogBox} />
           </Dialog>
         )}
         <ImageList
-          setDialogBox={setDialogBox}
-          dialogBox={dialogBox}
           searchShow={searchShow}
           searchFieldValue={searchFieldValue}
         />

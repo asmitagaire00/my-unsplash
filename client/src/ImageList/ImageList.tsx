@@ -4,18 +4,11 @@ import ImageItem from "../ImageItem/ImageItem";
 import "./ImageList.css";
 
 type imageProps = {
-  setDialogBox: (dialog: boolean) => void;
-  dialogBox: boolean;
   searchShow: boolean;
   searchFieldValue: string;
 };
 
-const ImageList = ({
-  setDialogBox,
-  dialogBox,
-  searchShow,
-  searchFieldValue,
-}: imageProps) => {
+const ImageList = ({ searchShow, searchFieldValue }: imageProps) => {
   const [imageList, setImageList] = useState<
     { id: string; label: string; url: string }[]
   >([]);
@@ -63,8 +56,6 @@ const ImageList = ({
               imageInfo={imageInfo}
               key={index}
               toDeleteImageItem={toDeleteImageItem}
-              setDialogBox={setDialogBox}
-              dialogBox={dialogBox}
             />
           );
         })}

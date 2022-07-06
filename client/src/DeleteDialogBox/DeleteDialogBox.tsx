@@ -4,18 +4,18 @@ import "./DeleteDialogBox.css";
 type deleteDialogBoxProps = {
   imageInfo: any;
   toDeleteImageItem: Function;
-  setDialogBox: (dialog: boolean) => void;
+  setDeleteDialogBox: (dialog: boolean) => void;
 };
 
 const DeleteDialogBox = ({
   imageInfo,
   toDeleteImageItem,
-  setDialogBox,
+  setDeleteDialogBox,
 }: deleteDialogBoxProps) => {
   const { _id } = imageInfo;
 
   const handleDialogCancel = () => {
-    setDialogBox(false);
+    setDeleteDialogBox(false);
   };
   const handleDeleteButton = () => {
     toDeleteImageItem({ _id });

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import DeleteDialogBox from "../DeleteDialogBox/DeleteDialogBox";
 import Dialog from "../Dialog/Dialog";
@@ -6,23 +7,17 @@ import "./ImageItem.css";
 type imageItemProps = {
   imageInfo: any;
   toDeleteImageItem: Function;
-  setDialogBox: (dialog: boolean) => void;
-  dialogBox: boolean;
 };
 
-const ImageItem = ({
-  imageInfo,
-  toDeleteImageItem,
-  setDialogBox,
-  dialogBox,
-}: imageItemProps) => {
+const ImageItem = ({ imageInfo, toDeleteImageItem }: imageItemProps) => {
+  const [deleteDialogBox, setDeleteDialogBox] = useState<boolean>(false);
   const { label, url } = imageInfo;
 
   return (
     <div>
       <div className="image-item-wrapper">
         <Button
-          onClick={() => setDialogBox(true)}
+          onClick={() => setDeleteDialogBox(true)}
           children="Delete"
           border="1px solid #EB5757"
           backgroundColor=""
@@ -42,17 +37,15 @@ const ImageItem = ({
         {/* todo: show label only on hover */}
         <span>{label}</span>
       </div>
-      <Dialog
-        setDialogBox={setDialogBox}
-        dialogBox={dialogBox}
-        title="Are you Sure?"
-      >
-        <DeleteDialogBox
-          toDeleteImageItem={toDeleteImageItem}
-          imageInfo={imageInfo}
-          setDialogBox={setDialogBox}
-        />
-      </Dialog>
+      {deleteDialogBox && (
+        <Dialog deleteDialogBox={deleteDialogBox} title="Are you Sure?">
+          <DeleteDialogBox
+            toDeleteImageItem={toDeleteImageItem}
+            imageInfo={imageInfo}
+            setDeleteDialogBox={setDeleteDialogBox}
+          />
+        </Dialog>
+      )}
     </div>
   );
 };

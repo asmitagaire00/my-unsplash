@@ -2,16 +2,20 @@ import "./Dialog.css";
 
 type Props = {
   children: JSX.Element;
-  setDialogBox: (dialog: boolean) => void;
-  dialogBox: boolean;
+  dialogBox?: boolean;
+  deleteDialogBox?: boolean;
   title: string;
 };
 
-const Dialog = ({ children, setDialogBox, dialogBox, title }: Props) => {
+const Dialog = ({ children, dialogBox, title, deleteDialogBox }: Props) => {
   return (
     <div>
       <div
-        className={dialogBox ? "dialog-wrapper-show" : "dialog-wrapper-hide"}
+        className={
+          dialogBox || deleteDialogBox
+            ? "dialog-wrapper-show"
+            : "dialog-wrapper-hide"
+        }
       >
         <span>{title}</span>
         <div className="dialogbox-content">{children}</div>
