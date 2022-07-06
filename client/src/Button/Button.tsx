@@ -1,6 +1,6 @@
 import "./Button.css";
 
-type props = {
+type buttonProps = {
   backgroundColor: string;
   color: string;
   border: string;
@@ -26,7 +26,7 @@ const Button = ({
   backgroundColor,
   cursor,
   onClick,
-}: props) => {
+}: buttonProps) => {
   return (
     <button
       onClick={onClick}

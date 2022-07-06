@@ -1,8 +1,14 @@
+import { useState } from "react";
+import AddImageDialog from "../AddImageDialog/AddImageDialog";
 import Button from "../Button/Button";
+import Dialog from "../Dialog/Dialog";
 import ImageList from "../ImageList/ImageList";
 import "./Homepage.css";
 
 const Homepage = () => {
+  const [dialogBox, setDialogBox] = useState<boolean>(false);
+  // const [datas, setDatas] = useState<{ label: string; url: string }[]>([]);
+
   return (
     <div>
       <div className="homepage-wrapper">
@@ -26,21 +32,30 @@ const Homepage = () => {
           </div>
           <div className="topbar-right">
             <Button
-              onClick={() => console.log("button clicked")}
+              onClick={() => setDialogBox(true)}
               children="Add a photo"
               border="none"
               backgroundColor="#3DB46D"
               width="100px"
               height="45px"
               borderRadius="12px"
-              weight="700"
+              fontWeight="700"
               color="#FFFFFF"
               font="Noto Sans"
               cursor="pointer"
             />
           </div>
         </div>
-        <ImageList />
+        {dialogBox && (
+          <Dialog
+            setDialogBox={setDialogBox}
+            dialogBox={dialogBox}
+            title="Add a new Photo"
+          >
+            <AddImageDialog setDialogBox={setDialogBox} />
+          </Dialog>
+        )}
+        <ImageList setDialogBox={setDialogBox} dialogBox={dialogBox} />
       </div>
     </div>
   );

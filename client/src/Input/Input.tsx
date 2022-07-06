@@ -1,7 +1,6 @@
-import { Children, ReactNode } from "react";
 import "./Input.css";
 
-type Props = {
+type InputProps = {
   padding: string;
   font: string;
   fontSize: string;
@@ -9,6 +8,8 @@ type Props = {
   color: string;
   borderRadius: string;
   children: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 };
 
 const Input = ({
@@ -19,12 +20,16 @@ const Input = ({
   color,
   borderRadius,
   children,
-}: Props) => {
+  onChange,
+  value,
+}: InputProps) => {
   return (
     <input
       type="text"
       id="input"
       placeholder={children}
+      onChange={onChange}
+      value={value}
       style={{
         padding: padding,
         fontSize: fontSize,
