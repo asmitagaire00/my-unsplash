@@ -29,7 +29,16 @@ const Homepage = () => {
               <span className="logo">📷</span>
               <div className="title">
                 <p className="title-text">My Unsplash</p>
-                <span className="title-website">acupofasmita.com</span>
+                <span className="title-website">
+                  <a
+                    href="https://www.acupofasmita.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    acupofasmita.com
+                  </a>
+                </span>
               </div>
             </div>
             <div className="search-wrapper">

@@ -1,8 +1,6 @@
 .homepage-wrapper {
   border: 1px solid;
-  display: flex;
-  flex-direction: column;
-  padding: 0 4rem;
+  padding: 1rem 4rem;
 }
 
 .homepage-topbar {
@@ -10,8 +8,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  border: 1px solid green;
 }
 
 .topbar-left {
@@ -20,15 +16,19 @@
 }
 
 .logo-and-title-container {
-  border: 1px solid;
   display: flex;
   margin-right: 1rem;
 }
 
 .logo {
-  margin-right: 1rem;
-  border: 1px solid;
+  margin-right: 0.7rem;
   padding-top: 4px;
+  padding-left: 4px;
+}
+
+.title {
+  padding: 0 10px;
+  margin-right: 8px;
 }
 
 .title-text {
@@ -44,11 +44,10 @@
 }
 .search-wrapper {
   border: 1px solid gray;
-  width: 250px;
-  height: 50px;
   border-radius: 12px;
   display: flex;
   align-items: center;
+  padding: 3px;
 }
 
 .search-icon {
@@ -59,8 +58,7 @@
 
 .search-text {
   font-size: 14px;
-  padding: 8px;
-  width: 100%;
+  padding: 10px 21px;
   border: none;
   outline: none;
 }
