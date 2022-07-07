@@ -1,0 +1,9 @@
+.delete-dialog-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1rem;
+}
+.cancel-button {
+  margin-right: 1rem;
+}

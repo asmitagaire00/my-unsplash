@@ -1,13 +1,14 @@
 .homepage-wrapper {
-  border: 1px solid;
-  padding: 1rem 4rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .homepage-topbar {
-  height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex: 1;
+  padding: 1rem 4rem;
 }
 
 .topbar-left {
@@ -17,18 +18,15 @@
 
 .logo-and-title-container {
   display: flex;
-  margin-right: 1rem;
 }
 
 .logo {
-  margin-right: 0.7rem;
   padding-top: 4px;
   padding-left: 4px;
 }
 
 .title {
   padding: 0 10px;
-  margin-right: 8px;
 }
 
 .title-text {

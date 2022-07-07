@@ -2,52 +2,50 @@ import Button from "../Button/Button";
 import "./DeleteDialogBox.css";
 
 type deleteDialogBoxProps = {
-  imageInfo: any;
+  toDeleteImageItemId: any;
   toDeleteImageItem: Function;
   setDeleteDialogBox: (dialog: boolean) => void;
 };
 
 const DeleteDialogBox = ({
-  imageInfo,
+  toDeleteImageItemId,
   toDeleteImageItem,
   setDeleteDialogBox,
 }: deleteDialogBoxProps) => {
-  const { _id } = imageInfo;
-
   const handleDialogCancel = () => {
     setDeleteDialogBox(false);
   };
   const handleDeleteButton = () => {
-    toDeleteImageItem({ _id });
+    toDeleteImageItem({ toDeleteImageItemId });
   };
   return (
     <div>
-      <div>
+      <div className="delete-dialog-buttons">
         <Button
           onClick={handleDialogCancel}
           children="Cancel"
           border="none"
           backgroundColor=""
-          width="100px"
-          height="45px"
+          padding="1rem 2rem"
           borderRadius="12px"
           fontWeight="700"
           color="#BDBDBD"
           font="Noto Sans"
           cursor="pointer"
+          className="cancel-button"
         />
         <Button
           onClick={handleDeleteButton}
           children="Delete"
           border="none"
           backgroundColor="#EB5757"
-          width="100px"
-          height="45px"
+          padding="1rem 2rem"
           borderRadius="12px"
           fontWeight="700"
           color="#FFFFFF"
           font="Noto Sans"
           cursor="pointer"
+          className=""
         />
       </div>
     </div>

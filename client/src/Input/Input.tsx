@@ -8,6 +8,8 @@ type InputProps = {
   color: string;
   borderRadius: string;
   children: string;
+  maxWidth: string;
+  width: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
 };
@@ -20,6 +22,8 @@ const Input = ({
   color,
   borderRadius,
   children,
+  maxWidth,
+  width,
   onChange,
   value,
 }: InputProps) => {
@@ -37,6 +41,8 @@ const Input = ({
         font: font,
         color: color,
         borderRadius: borderRadius,
+        width: width,
+        maxWidth: maxWidth,
       }}
     />
   );

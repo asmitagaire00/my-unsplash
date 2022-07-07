@@ -5,9 +5,19 @@ import Dialog from "../Dialog/Dialog";
 import ImageList from "../ImageList/ImageList";
 import "./Homepage.css";
 
-const Homepage = () => {
-  const [dialogBox, setDialogBox] = useState<boolean>(false);
+type homepageInput = {
+  setDialogBox: (dialog: boolean) => void;
+  dialogBox: boolean;
+  setDeleteDialogBox: (dialog: boolean) => void;
+  deleteDialogBox: boolean;
+};
 
+const Homepage = ({
+  setDialogBox,
+  dialogBox,
+  setDeleteDialogBox,
+  deleteDialogBox,
+}: homepageInput) => {
   const [searchFieldValue, setSearchFieldValue] = useState<string>("");
   const [searchShow, setSearchShow] = useState<boolean>(false);
 
@@ -22,7 +32,11 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="homepage-wrapper">
+      <div
+        className={
+          deleteDialogBox ? "homepage-wrapper-height" : "homepage-wrapper"
+        }
+      >
         <div className="homepage-topbar">
           <div className="topbar-left">
             <div className="logo-and-title-container">
@@ -58,13 +72,13 @@ const Homepage = () => {
               children="Add a photo"
               border="none"
               backgroundColor="#3DB46D"
-              width="100px"
-              height="45px"
+              padding="1rem 1rem"
               borderRadius="12px"
               fontWeight="700"
               color="#FFFFFF"
               font="Noto Sans"
               cursor="pointer"
+              className=""
             />
           </div>
         </div>
@@ -76,6 +90,8 @@ const Homepage = () => {
         <ImageList
           searchShow={searchShow}
           searchFieldValue={searchFieldValue}
+          setDeleteDialogBox={setDeleteDialogBox}
+          deleteDialogBox={deleteDialogBox}
         />
       </div>
     </div>

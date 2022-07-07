@@ -22,15 +22,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/post", postRoute); //change to down one
+app.use("/api/post", postRoute);
 
 app.listen(3001, () => {
   console.log("server is connected");
 });
-
-// app.use("/api/post", postRoute);
-
-// app.use((err, req, res, next) => {
-//   console.log("error: ", err);
-//   res.status(500).json({ message: "Internal server error" });
-// });

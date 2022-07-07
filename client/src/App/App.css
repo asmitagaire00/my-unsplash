@@ -4,6 +4,15 @@
   padding: 0;
 }
 
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .app {
-  border: 1px solid red;
+  position: relative;
+}
+
+.app-height {
+  height: 100vh;
+  overflow-y: hidden;
 }

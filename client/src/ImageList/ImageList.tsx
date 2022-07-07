@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import DeleteDialogBox from "../DeleteDialogBox/DeleteDialogBox";
+import Dialog from "../Dialog/Dialog";
 
 import ImageItem from "../ImageItem/ImageItem";
 import "./ImageList.css";
@@ -6,12 +8,21 @@ import "./ImageList.css";
 type imageProps = {
   searchShow: boolean;
   searchFieldValue: string;
+  setDeleteDialogBox: (dialog: boolean) => void;
+  deleteDialogBox: boolean;
 };
 
-const ImageList = ({ searchShow, searchFieldValue }: imageProps) => {
+const ImageList = ({
+  searchShow,
+  searchFieldValue,
+  setDeleteDialogBox,
+  deleteDialogBox,
+}: imageProps) => {
   const [imageList, setImageList] = useState<
-    { id: string; label: string; url: string }[]
+    { _id: string; label: string; url: string }[]
   >([]);
+
+  const [toDeleteImageItemId, setToDeleteImageItemId] = useState("");
 
   let filteredImageList = imageList;
 
@@ -29,16 +40,17 @@ const ImageList = ({ searchShow, searchFieldValue }: imageProps) => {
   }, []);
 
   const toDeleteImageItem = (deleteId: any) => {
-    console.log("from imagelist", deleteId._id);
-    fetch("/post/" + deleteId._id, { method: "DELETE" })
+    console.log("from imagelist", deleteId.toDeleteImageItemId);
+    fetch("/post/" + deleteId.toDeleteImageItemId, { method: "DELETE" })
       .then((response) => response.json())
       .then((updatedImageInfo) => {
-        // setImageList([...imageList, updatedImageInfo]);
         console.log(updatedImageInfo);
       })
       .catch((err) => {
         console.log("error occured in delete ", err);
       });
+    setDeleteDialogBox(false);
+    window.location.reload();
   };
 
   if (searchShow) {
@@ -47,8 +59,35 @@ const ImageList = ({ searchShow, searchFieldValue }: imageProps) => {
     });
   }
 
+  const toOpeneDeleteDialogBox = (toDeleteImage: any) => {
+    setToDeleteImageItemId(toDeleteImage._id);
+
+    const filteredImage = imageList.filter(
+      (imageItem) => imageItem._id === toDeleteImage._id
+    );
+    console.log("filteredImage", filteredImage);
+    filteredImageList = imageList.map((imageItem) => {
+      if (filteredImage) {
+        console.log("clicked");
+        setDeleteDialogBox(true);
+      } else {
+        // setDeleteDialogBox(false);
+      }
+      return imageItem;
+    });
+  };
+
   return (
-    <div>
+    <div className="image-list__wrapper">
+      {deleteDialogBox && (
+        <Dialog deleteDialogBox={deleteDialogBox} title="Are you Sure?">
+          <DeleteDialogBox
+            toDeleteImageItem={toDeleteImageItem}
+            toDeleteImageItemId={toDeleteImageItemId}
+            setDeleteDialogBox={setDeleteDialogBox}
+          />
+        </Dialog>
+      )}
       <div>
         {filteredImageList.map((imageInfo, index) => {
           return (
@@ -56,6 +95,9 @@ const ImageList = ({ searchShow, searchFieldValue }: imageProps) => {
               imageInfo={imageInfo}
               key={index}
               toDeleteImageItem={toDeleteImageItem}
+              setDeleteDialogBox={setDeleteDialogBox}
+              deleteDialogBox={deleteDialogBox}
+              toOpeneDeleteDialogBox={toOpeneDeleteDialogBox}
             />
           );
         })}

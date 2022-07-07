@@ -1,0 +1,24 @@
+.add-image-dialog__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+.add-image-dialog-input-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.add-image-dialog-input-label {
+  padding: 0.4rem 0;
+}
+
+.add-image-dialog-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-image-dialog-button-item {
+  margin-right: 1rem;
+}

@@ -1,4 +1,35 @@
 .image-item-wrapper {
-  border: 1px solid red;
-  margin-bottom: 20px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+  border-collapse: separate;
+  margin-bottom: 1.5rem;
+  background-color: none;
+  border-radius: 16px;
+}
+
+.image-item_label {
+  display: none;
+}
+
+.image-item-wrapper:hover > .image-item_label {
+  display: block;
+  position: absolute;
+  color: #ffffff;
+  line-height: 22px;
+  font-weight: 700px;
+  font-size: 18px;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.image-item_delete {
+  display: none;
+}
+
+.image-item-wrapper:hover > .image-item_delete {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: block;
 }

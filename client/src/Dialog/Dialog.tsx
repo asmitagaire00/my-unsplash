@@ -9,16 +9,22 @@ type Props = {
 
 const Dialog = ({ children, dialogBox, title, deleteDialogBox }: Props) => {
   return (
-    <div>
+    <div className={dialogBox ? "dialog-wrapper " : "delete-dialog-wrapper"}>
       <div
         className={
-          dialogBox || deleteDialogBox
-            ? "dialog-wrapper-show"
-            : "dialog-wrapper-hide"
+          dialogBox ? "dialog-wrapper-item" : "delete-dialog-wrapper-item"
         }
       >
-        <span>{title}</span>
-        <div className="dialogbox-content">{children}</div>
+        <div
+          className={
+            dialogBox || deleteDialogBox
+              ? "dialog-wrapper-show"
+              : "dialog-wrapper-hide"
+          }
+        >
+          <h3>{title}</h3>
+          <div className="dialogbox-content">{children}</div>
+        </div>
       </div>
     </div>
   );

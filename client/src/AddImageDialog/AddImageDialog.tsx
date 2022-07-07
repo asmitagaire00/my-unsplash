@@ -8,8 +8,6 @@ import { useState } from "react";
 type addImageProps = {
   children?: string;
   setDialogBox: (dialog: boolean) => void;
-  // setDatas: (data: { label: string; url: string }[]) => void;
-  // datas: { label: string; url: string }[];
 };
 
 const AddImageDialog = ({ setDialogBox }: addImageProps) => {
@@ -40,6 +38,7 @@ const AddImageDialog = ({ setDialogBox }: addImageProps) => {
       .catch((err) => {
         console.log("error occured", err);
       });
+    window.location.reload();
   };
 
   const handleDialogCancel = () => {
@@ -47,9 +46,11 @@ const AddImageDialog = ({ setDialogBox }: addImageProps) => {
   };
 
   return (
-    <div>
-      <div>
-        <label htmlFor="image-label">Label</label>
+    <div className="add-image-dialog__wrapper">
+      <div className="add-image-dialog-input-item">
+        <label htmlFor="image-label" className="add-image-dialog-input-label">
+          Label
+        </label>
         <Input
           padding="1rem"
           font="Noto Sans"
@@ -60,10 +61,14 @@ const AddImageDialog = ({ setDialogBox }: addImageProps) => {
           children=""
           onChange={handleLabelInputChange}
           value={labelInput}
+          width="100%"
+          maxWidth=""
         />
       </div>
-      <div>
-        <label htmlFor="image-label">Photo URL</label>
+      <div className="add-image-dialog-input-item">
+        <label htmlFor="image-label" className="add-image-dialog-input-label">
+          Photo URL
+        </label>
         <Input
           padding="1rem"
           font="Noto Sans"
@@ -74,34 +79,36 @@ const AddImageDialog = ({ setDialogBox }: addImageProps) => {
           children=""
           onChange={handleUrlInputChange}
           value={urlInput}
+          width="100%"
+          maxWidth=""
         />
       </div>
-      <div>
+      <div className="add-image-dialog-button-wrapper">
         <Button
           onClick={handleDialogCancel}
           children="Cancel"
           border="none"
-          backgroundColor=""
-          width="100px"
-          height="45px"
-          borderRadius="12px"
+          backgroundColor="#cecece"
+          padding="0.8rem 2.3rem"
+          borderRadius="10px"
           fontWeight="700"
-          color="#BDBDBD"
+          color="#ffffff"
           font="Noto Sans"
           cursor="pointer"
+          className="add-image-dialog-button-item"
         />
         <Button
           onClick={handleImageSubmit}
           children="Submit"
           border="none"
           backgroundColor="#3DB46D"
-          width="100px"
-          height="45px"
-          borderRadius="12px"
+          padding="0.8rem 2.3rem"
+          borderRadius="10px"
           fontWeight="700"
           color="#FFFFFF"
           font="Noto Sans"
           cursor="pointer"
+          className="add-image-dialog-button-item"
         />
       </div>
     </div>

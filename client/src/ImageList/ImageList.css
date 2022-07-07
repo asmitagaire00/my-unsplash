@@ -1,0 +1,20 @@
+.image-list__wrapper {
+  padding: 1rem 4rem;
+  display: column;
+  columns: 4;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@supports (grid-template-rows: masonry) {
+  .image-list__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: masonry;
+    grid-auto-flow: dense;
+  }
+  .image-list__wrapper > * {
+    break-inside: avoid;
+    margin-bottom: 0rem;
+  }
+}
