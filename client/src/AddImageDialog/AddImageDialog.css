@@ -18,7 +18,6 @@
   display: flex;
   justify-content: flex-end;
 }
-
-.add-image-dialog-button-item {
+.add-image-dialog-button__item {
   margin-right: 1rem;
 }

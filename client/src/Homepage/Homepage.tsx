@@ -67,19 +67,9 @@ const Homepage = ({
             </div>
           </div>
           <div className="topbar-right">
-            <Button
-              onClick={() => setDialogBox(true)}
-              children="Add a photo"
-              border="none"
-              backgroundColor="#3DB46D"
-              padding="1rem 1rem"
-              borderRadius="12px"
-              fontWeight="700"
-              color="#FFFFFF"
-              font="Noto Sans"
-              cursor="pointer"
-              className=""
-            />
+            <Button onClick={() => setDialogBox(true)} variant="primary">
+              Add a photo
+            </Button>
           </div>
         </div>
         {dialogBox && (

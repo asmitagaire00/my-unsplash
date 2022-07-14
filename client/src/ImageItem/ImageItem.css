@@ -23,13 +23,24 @@
   left: 1rem;
 }
 
-.image-item_delete {
+.image-item_button-item {
   display: none;
 }
 
-.image-item-wrapper:hover > .image-item_delete {
+.image-item-wrapper:hover > .image-item_button-item {
   position: absolute;
-  right: 1rem;
+  right: 0.8rem;
   top: 1rem;
   display: block;
+  border: 1px solid #eb5757;
+  border-radius: 12px;
+}
+
+.image-item_button {
+  padding: 0.3rem 1.3rem;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #eb5757;
+  cursor: pointer;
 }

@@ -52,64 +52,28 @@ const AddImageDialog = ({ setDialogBox }: addImageProps) => {
           Label
         </label>
         <Input
-          padding="1rem"
-          font="Noto Sans"
-          fontSize="14px"
-          fontWeight="500"
-          color="#807d7d"
-          borderRadius="12px"
           children=""
           onChange={handleLabelInputChange}
           value={labelInput}
-          width="100%"
-          maxWidth=""
         />
       </div>
       <div className="add-image-dialog-input-item">
         <label htmlFor="image-label" className="add-image-dialog-input-label">
           Photo URL
         </label>
-        <Input
-          padding="1rem"
-          font="Noto Sans"
-          fontSize="14px"
-          fontWeight="500"
-          color="#807d7d"
-          borderRadius="12px"
-          children=""
-          onChange={handleUrlInputChange}
-          value={urlInput}
-          width="100%"
-          maxWidth=""
-        />
+        <Input children="" onChange={handleUrlInputChange} value={urlInput} />
       </div>
       <div className="add-image-dialog-button-wrapper">
-        <Button
-          onClick={handleDialogCancel}
-          children="Cancel"
-          border="none"
-          backgroundColor="#cecece"
-          padding="0.8rem 2.3rem"
-          borderRadius="10px"
-          fontWeight="700"
-          color="#ffffff"
-          font="Noto Sans"
-          cursor="pointer"
-          className="add-image-dialog-button-item"
-        />
-        <Button
-          onClick={handleImageSubmit}
-          children="Submit"
-          border="none"
-          backgroundColor="#3DB46D"
-          padding="0.8rem 2.3rem"
-          borderRadius="10px"
-          fontWeight="700"
-          color="#FFFFFF"
-          font="Noto Sans"
-          cursor="pointer"
-          className="add-image-dialog-button-item"
-        />
+        <div className="add-image-dialog-button__item">
+          <Button onClick={handleDialogCancel} variant="default">
+            Cancel
+          </Button>
+        </div>
+        <div className="add-image-dialog-button__item">
+          <Button onClick={handleImageSubmit} variant="primary">
+            Submit
+          </Button>
+        </div>
       </div>
     </div>
   );

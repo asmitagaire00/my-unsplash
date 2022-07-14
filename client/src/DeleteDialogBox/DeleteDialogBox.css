@@ -4,6 +4,7 @@
   align-items: center;
   margin-top: 1rem;
 }
-.cancel-button {
+
+.delete-dialog-buttons__item {
   margin-right: 1rem;
 }

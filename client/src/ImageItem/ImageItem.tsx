@@ -1,6 +1,3 @@
-import Button from "../Button/Button";
-import DeleteDialogBox from "../DeleteDialogBox/DeleteDialogBox";
-import Dialog from "../Dialog/Dialog";
 import "./ImageItem.css";
 
 type imageItemProps = {
@@ -11,13 +8,7 @@ type imageItemProps = {
   deleteDialogBox: boolean;
 };
 
-const ImageItem = ({
-  imageInfo,
-  toDeleteImageItem,
-  setDeleteDialogBox,
-  deleteDialogBox,
-  toOpeneDeleteDialogBox,
-}: imageItemProps) => {
+const ImageItem = ({ imageInfo, toOpeneDeleteDialogBox }: imageItemProps) => {
   const { _id, label, url } = imageInfo;
 
   const openDeleteDialogBox = () => {
@@ -28,19 +19,11 @@ const ImageItem = ({
   return (
     <div>
       <div className="image-item-wrapper">
-        <Button
-          onClick={openDeleteDialogBox}
-          children="Delete"
-          border="1px solid #EB5757"
-          backgroundColor="rgba(0, 0, 0, 0.38)"
-          padding="0.3rem 1.2rem"
-          borderRadius="12px"
-          fontWeight="700"
-          color="red"
-          font="Noto Sans"
-          cursor="pointer"
-          className="image-item_delete"
-        />
+        <div className="image-item_button-item">
+          <button onClick={openDeleteDialogBox} className="image-item_button">
+            Delete
+          </button>
+        </div>
         <img
           src={url}
           alt="imagep"

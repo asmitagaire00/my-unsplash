@@ -33,6 +33,7 @@
 .dialog-wrapper-show {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1rem 2rem;
+  width: 100%;
 }
 .dialog-wrapper-hide {
   display: none;

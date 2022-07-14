@@ -1,45 +1,29 @@
 import "./Button.css";
 
 type buttonProps = {
-  backgroundColor: string;
-  color: string;
-  border: string;
-  borderRadius: string;
-  font: string;
-  fontWeight: any;
-  cursor: string;
-  className: string;
   children: React.ReactNode;
-  padding: string;
+  variant: "primary" | "secondary" | "default";
   onClick: () => void;
 };
 
-const Button = ({
-  children,
-  color,
-  border,
-  borderRadius,
-  font,
-  fontWeight,
-  backgroundColor,
-  cursor,
-  className,
-  padding,
-  onClick,
-}: buttonProps) => {
+const Button = ({ children, variant, onClick }: buttonProps) => {
+  const getBackgroundColor = (variant: any) => {
+    if (variant === "primary") {
+      return "#3db46d";
+    }
+    if (variant === "secondary") {
+      return "#eb5757";
+    }
+
+    if (variant === "default") {
+      return "#cecece";
+    }
+  };
   return (
     <button
       onClick={onClick}
-      className={className}
-      style={{
-        color: color,
-        font: font,
-        backgroundColor: backgroundColor,
-        border: border,
-        borderRadius: borderRadius,
-        cursor: cursor,
-        padding: padding,
-      }}
+      style={{ backgroundColor: getBackgroundColor(variant) }}
+      className="button"
     >
       {children}
     </button>

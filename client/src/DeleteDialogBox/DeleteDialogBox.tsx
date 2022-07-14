@@ -21,32 +21,16 @@ const DeleteDialogBox = ({
   return (
     <div>
       <div className="delete-dialog-buttons">
-        <Button
-          onClick={handleDialogCancel}
-          children="Cancel"
-          border="none"
-          backgroundColor=""
-          padding="1rem 2rem"
-          borderRadius="12px"
-          fontWeight="700"
-          color="#BDBDBD"
-          font="Noto Sans"
-          cursor="pointer"
-          className="cancel-button"
-        />
-        <Button
-          onClick={handleDeleteButton}
-          children="Delete"
-          border="none"
-          backgroundColor="#EB5757"
-          padding="1rem 2rem"
-          borderRadius="12px"
-          fontWeight="700"
-          color="#FFFFFF"
-          font="Noto Sans"
-          cursor="pointer"
-          className=""
-        />
+        <div className="delete-dialog-buttons__item">
+          <Button onClick={handleDialogCancel} variant="default">
+            Cancel
+          </Button>
+        </div>
+        <div className="delete-dialog-buttons__item">
+          <Button onClick={handleDeleteButton} variant="secondary">
+            Delete
+          </Button>
+        </div>
       </div>
     </div>
   );
