@@ -32,7 +32,7 @@
 
 Screenshot of my unsplash app. This app helps you to upload your image. As a user you can delete and add as much image as you want.
 
-<img width="1509" alt="Screen Shot" src="./my-unsplash-app.png">
+<img width="1502" alt="my-unsplash-app" src="https://user-images.githubusercontent.com/71869793/177776912-ed9ba0c8-b2fc-4fa2-9ed1-2fed3a813899.png">
 
 ### Built With
 
