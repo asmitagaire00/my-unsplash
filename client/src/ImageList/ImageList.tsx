@@ -23,6 +23,7 @@ const ImageList = ({
   >([]);
 
   const [toDeleteImageItemId, setToDeleteImageItemId] = useState("");
+  const [downloadImageInfo, setDownloadImageInfo] = useState("");
 
   let filteredImageList = imageList;
 
@@ -77,6 +78,17 @@ const ImageList = ({
     });
   };
 
+  const toDownloadImageItem = (imageId: any) => {
+    fetch("/post/" + imageId._id)
+      .then((response) => response.json())
+      .then((imageItemInfo) => {
+        setDownloadImageInfo(imageItemInfo.data);
+      })
+      .catch((error) => {
+        console.log("error in image item info", error);
+      });
+  };
+
   return (
     <div className="image-list__wrapper">
       {deleteDialogBox && (
@@ -98,6 +110,8 @@ const ImageList = ({
               setDeleteDialogBox={setDeleteDialogBox}
               deleteDialogBox={deleteDialogBox}
               toOpeneDeleteDialogBox={toOpeneDeleteDialogBox}
+              toDownloadImageItem={toDownloadImageItem}
+              downloadImageInfo={downloadImageInfo}
             />
           );
         })}

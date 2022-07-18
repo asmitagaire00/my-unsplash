@@ -40,9 +40,9 @@ const Homepage = ({
         <div className="homepage-topbar">
           <div className="topbar-left">
             <div className="logo-and-title-container">
-              <span className="logo">📷</span>
+              {/* <span className="logo">📷</span> */}
               <div className="title">
-                <p className="title-text">My Unsplash</p>
+                {/* <p className="title-text">My Unsplash</p>
                 <span className="title-website">
                   <a
                     href="https://www.acupofasmita.com/"
@@ -52,7 +52,8 @@ const Homepage = ({
                   >
                     acupofasmita.com
                   </a>
-                </span>
+                </span> */}
+                <img src="assets/my_unsplash_logo.svg" alt="logo" />
               </div>
             </div>
             <div className="search-wrapper">

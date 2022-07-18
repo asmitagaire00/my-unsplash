@@ -2,6 +2,7 @@ const Post = require("../models/Post");
 
 const router = require("express").Router();
 
+//to get all image items
 router.get("/", async (req, res) => {
   try {
     const posts = await Post.find();
@@ -12,6 +13,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+//to get requested image item id
+router.get("/:id", async (req, res) => {
+  try {
+    const imageItem = await Post.findById(req.params.id);
+    res.status(200).send({ status: "ok", data: imageItem });
+  } catch (error) {
+    console.log("error occurred in get one item:server", error);
+    res.status(500).send({ status: "Failed", data: { error: 500 } });
+  }
+});
+
+//to create new image item
 router.post("/", async (req, res) => {
   const { labelInput: imgLabel, urlInput: imgUrl } = req.body;
 
@@ -33,6 +46,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//to delete requested image id
 router.delete("/:id", async (req, res) => {
   try {
     const deletedPost = await Post.findByIdAndDelete(req.params.id);
