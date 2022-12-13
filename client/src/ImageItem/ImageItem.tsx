@@ -18,11 +18,13 @@ const ImageItem = ({
 }: imageItemProps) => {
   const { _id, label, url } = imageInfo;
 
+  //to get id of delete button cliked item
   const openDeleteDialogBox = () => {
     toOpeneDeleteDialogBox({ _id });
     console.log(_id);
   };
 
+  //to get id of download button clicked item
   const handleDownloadImage = () => {
     toDownloadImageItem({ _id });
     console.log("id", _id);
