@@ -44,7 +44,7 @@ const ImageItem = ({
   const downloadItem = async () => {
     const a = document.createElement("a");
     a.href = await toDataURL(downloadImageInfo.url);
-    a.download = downloadImageInfo.label + "." + "png";
+    a.download = downloadImageInfo.label + ".png";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
